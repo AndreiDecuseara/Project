@@ -40,10 +40,6 @@
             android:name=".options.WishlistActivity"
             android:label="@string/my_wishlist">
         </activity>
-        <activity
-            android:name=".options.CartListActivity"
-            android:label="@string/my_cart">
-        </activity>
         <activity android:name=".options.SearchResultActivity">
 
             <!-- to identify this activity as "searchable.xml" -->

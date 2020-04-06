@@ -18,17 +18,12 @@ import android.view.MenuItem;
 import com.allandroidprojects.ecomsample.R;
 import com.allandroidprojects.ecomsample.fragments.ImageListFragment;
 import com.allandroidprojects.ecomsample.miscellaneous.EmptyActivity;
-import com.allandroidprojects.ecomsample.notification.NotificationCountSetClass;
-import com.allandroidprojects.ecomsample.options.CartListActivity;
-import com.allandroidprojects.ecomsample.options.SearchResultActivity;
-import com.allandroidprojects.ecomsample.options.WishlistActivity;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    public static int notificationCountCart = 0;
     static ViewPager viewPager;
     static TabLayout tabLayout;
 
@@ -56,15 +51,6 @@ public class MainActivity extends AppCompatActivity
             tabLayout.setupWithViewPager(viewPager);
         }
 
-
-      /*  FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
     }
 
     @Override
@@ -93,30 +79,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuItem item = menu.findItem(R.id.action_cart);
-        NotificationCountSetClass.setAddToCart(MainActivity.this, item,notificationCountCart);
         invalidateOptionsMenu();
         return super.onPrepareOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_search) {
-            startActivity(new Intent(MainActivity.this, SearchResultActivity.class));
-            return true;
-        }else if (id == R.id.action_cart) {
-
-
-            startActivity(new Intent(MainActivity.this, CartListActivity.class));
-
-            return true;
-        }else {
-            startActivity(new Intent(MainActivity.this, EmptyActivity.class));
-
-        }
-        return super.onOptionsItemSelected(item);
     }
 
     private void setupViewPager(ViewPager viewPager) {
@@ -172,10 +136,6 @@ public class MainActivity extends AppCompatActivity
             viewPager.setCurrentItem(4);
         }else if (id == R.id.nav_item6) {
             viewPager.setCurrentItem(5);
-        }else if (id == R.id.my_wishlist) {
-            startActivity(new Intent(MainActivity.this, WishlistActivity.class));
-        }else if (id == R.id.my_cart) {
-            startActivity(new Intent(MainActivity.this, CartListActivity.class));
         }else {
             startActivity(new Intent(MainActivity.this, EmptyActivity.class));
         }
