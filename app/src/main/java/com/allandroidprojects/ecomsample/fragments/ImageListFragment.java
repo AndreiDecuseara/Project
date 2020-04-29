@@ -142,17 +142,17 @@ public class ImageListFragment extends Fragment {
             });
 
             //Set click action for wishlist
-            holder.mImageViewWishlist.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
-                    imageUrlUtils.addWishlistImageUri(mValues[position]);
-                    holder.mImageViewWishlist.setImageResource(R.drawable.ic_favorite_black_18dp);
-                    notifyDataSetChanged();
-                    Toast.makeText(mActivity,"Item added to wishlist.",Toast.LENGTH_SHORT).show();
-
-                }
-            });
+//            holder.mImageViewWishlist.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    ImageUrlUtils imageUrlUtils = new ImageUrlUtils();
+//                    imageUrlUtils.addWishlistImageUri(mValues[position]);
+//                    holder.mImageViewWishlist.setImageResource(R.drawable.ic_favorite_black_18dp);
+//                    notifyDataSetChanged();
+//                    Toast.makeText(mActivity,"Item added to wishlist.",Toast.LENGTH_SHORT).show();
+//
+//                }
+//            });
 
         }
 

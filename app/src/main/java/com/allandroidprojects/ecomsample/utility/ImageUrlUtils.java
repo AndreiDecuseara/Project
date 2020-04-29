@@ -2,9 +2,6 @@ package com.allandroidprojects.ecomsample.utility;
 
 import java.util.ArrayList;
 
-/**
- * Created by 06peng on 2015/6/24.
- */
 public class ImageUrlUtils {
     static ArrayList<String> wishlistImageUri = new ArrayList<>();
     static ArrayList<String> cartListImageUri = new ArrayList<>();
@@ -229,7 +226,6 @@ public class ImageUrlUtils {
         return urls;
     }
 
-    // Methods for Wishlist
     public void addWishlistImageUri(String wishlistImageUri) {
         this.wishlistImageUri.add(0,wishlistImageUri);
     }
@@ -240,7 +236,6 @@ public class ImageUrlUtils {
 
     public ArrayList<String> getWishlistImageUri(){ return this.wishlistImageUri; }
 
-    // Methods for Cart
     public void addCartListImageUri(String wishlistImageUri) {
         this.cartListImageUri.add(0,wishlistImageUri);
     }

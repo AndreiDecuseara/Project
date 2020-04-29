@@ -1,18 +1,4 @@
-/*******************************************************************************
- * Copyright 2011, 2012 Chris Banes.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *******************************************************************************/
+
 package com.allandroidprojects.ecomsample.photoview.view;
 
 import android.annotation.SuppressLint;
@@ -209,12 +195,7 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
         return mZoomEnabled;
     }
 
-    /**
-     * Clean-up the resources attached to this object. This needs to be called when the ImageView is
-     * no longer used. A good example is from {@link View#onDetachedFromWindow()} or
-     * from {@link android.app.Activity#onDestroy()}. This is automatically called if you are using
-     * {@link PhotoView}.
-     */
+
     @SuppressWarnings("deprecation")
     public void cleanup() {
         if (null == mImageView) {
@@ -275,9 +256,6 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
         return true;
     }
 
-    /**
-     * @deprecated use {@link #setRotationTo(float)}
-     */
     @Override
     public void setPhotoViewRotation(float degrees) {
         mSuppMatrix.setRotate(degrees % 360);
@@ -371,15 +349,6 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
         mSuppMatrix.postTranslate(dx, dy);
         checkAndDisplayMatrix();
 
-        /**
-         * Here we decide whether to let the ImageView's parent to start taking
-         * over the touch event.
-         *
-         * First we check whether this function is enabled. We never want the
-         * parent to take over if we're scaling. We then check the edge we're
-         * on, and the direction of the scroll (i.e. if we're pulling against
-         * the edge, aka 'overscrolling', let the parent take over).
-         */
         ViewParent parent = imageView.getParent();
         if (mAllowParentInterceptOnEdge && !mScaleDragDetector.isScaling() && !mBlockParentIntercept) {
             if (mScrollEdge == EDGE_BOTH
@@ -422,13 +391,6 @@ public class PhotoViewAttacher implements IPhotoView, View.OnTouchListener,
                 final int bottom = imageView.getBottom();
                 final int left = imageView.getLeft();
 
-                /**
-                 * We need to check whether the ImageView's bounds have changed.
-                 * This would be easier if we targeted API 11+ as we could just use
-                 * View.OnLayoutChangeListener. Instead we have to replicate the
-                 * work, keeping track of the ImageView's bounds and then checking
-                 * if the values change.
-                 */
                 if (top != mIvTop || bottom != mIvBottom || left != mIvLeft
                         || right != mIvRight) {
                     // Update our base matrix, as the bounds have changed
